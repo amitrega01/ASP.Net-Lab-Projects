@@ -6755,3 +6755,12 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
+
+p img {
+    width: auto;
+}
+
+span .pubDate {
+    padding: 16px;
+}

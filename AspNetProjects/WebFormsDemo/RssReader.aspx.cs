@@ -24,7 +24,8 @@ namespace WebFormsDemo
               {
                   Title = x.Element("title").Value,
                   PubDate = x.Element("pubDate").Value,
-                  Description = x.Element("description").Value
+                  Description = x.Element("description").Value,
+                  Link = x.Element("link").Value
               }
              );
             Repeater1.DataSource = items.ToList();
