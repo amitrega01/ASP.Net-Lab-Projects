@@ -16,7 +16,6 @@
             transition: 0.3s;
             height: 312px;
         }
-
             .card:hover {
                 box-shadow: 0 5px 10px rgba(0,0,0,0.25);
             }
@@ -65,18 +64,7 @@
             p img {
                 display: none;
             }
-
-        .row {
-            display: flex;
-            margin-top: 16px;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin: 16px auto;
-            width: 100%;
-        }
-
-        .input {
+               .input {
             align-self: stretch;
             border: 0.5px solid rgba(0,0,0,0.25);
             border-radius: 10px 0 0 10px;
@@ -93,11 +81,22 @@
             color: white;
             transition: 0.5s;
         }
-        .button:hover {
-            box-shadow: 0 5px 10px rgba(0,0,0,0.25);
-            
-            background-color: rgba(0,0,0,0.75);
+
+            .button:hover {
+                box-shadow: 0 5px 10px rgba(0,0,0,0.25);
+                background-color: rgba(0,0,0,0.75);
+            }
+        .row {
+            display: flex;
+            margin-top: 16px;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 16px auto;
+            width: 100%;
         }
+
+     
     </style>
     <div class="row" >
     <asp:TextBox ID="RssText" runat="server"  ToolTip="Kanał rss" CssClass="input"></asp:TextBox>
@@ -117,6 +116,8 @@
                 <p class="content"><%# Item.Description %></p>
             </div>
             </a>
+           
+</div>
         </ItemTemplate>
     </asp:Repeater>
         

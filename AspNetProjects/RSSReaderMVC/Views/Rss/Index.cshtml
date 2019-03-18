@@ -1,0 +1,15 @@
+﻿@model IEnumerable<RSSReaderMVC.Models.RssItem>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@foreach ( var item in Model) {
+
+    <h1>@item.Title</h1>
+    <span>@item.PubDate</span>
+    <p>@Html.Raw(item.Description)</p>
+    <span>Źródło: </span> <a href="@item.Link">@item.Link</a>
+    
+}
