@@ -1,28 +1,83 @@
-﻿@model IEnumerable<Forms.Models.ConferenceUser>
+﻿
+@model ReflectionIT.Mvc.Paging.PagingList<Forms.Models.ConferenceUser>
+@using ReflectionIT.Mvc.Paging
+@addTagHelper *, ReflectionIT.Mvc.Paging
 
 @{
-    ViewData["Title"] = "Index";
+    await Html.RenderPartialAsync("Create", new ConferenceUser());
+
 }
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<style>
+    nav {
+        flex: 1;
+        align-content: 'center'
+
+    }
+
+    .pagination {
+        justify-content: center;
+        text-align:center
+    }
+    .active {
+        background-color:#007bff;
+        font-weight: 800;
+       
+    }
+    .active a {
+         color: white;
+    }
+    nav ul {
+        border: none;
+    }
+
+        nav ul li {
+            padding: 12px;
+            border-right: 1px solid #808080;
+            min-width: 50px;
+            border-top: 1px solid #808080;
+            border-bottom: 1px solid #808080;
+        }
+
+            nav ul li:first-child {
+                border-bottom-left-radius: 12px;
+                border-top-left-radius: 12px;
+                border-top: 1px solid #808080;
+                border-left: 1px solid #808080;
+                border-bottom: 1px solid #808080;
+            }
+
+            nav ul li:last-child {
+                border-bottom-right-radius: 12px;
+                border-top-right-radius: 12px;
+                border-top: 1px solid #808080;
+                border-right: 1px solid #808080;
+                border-bottom: 1px solid #808080;
+            }
+
+            nav ul li a {
+                font-size: 18px;
+            }
+</style>
+
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.FirstName)
+                First Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.LastName)
+                Last Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Email)
+                Email
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ConferenceType)
+                ConferenceType
+            </th>
+            <th>
+                ProfilePic
             </th>
         </tr>
     </thead>
@@ -43,9 +98,14 @@
                     @Html.DisplayFor(modelItem => item.ConferenceType)
                 </td>
                 <td>
-                    <img src="@Html.DisplayFor(modelItem => item.ProfilePicUrl)" alt="User Logo" asp-append-version="true" />
+                    <img class="img-responsive" src="@item.ProfilePicUrl" alt="">
                 </td>
             </tr>
         }
     </tbody>
 </table>
+<nav>
+    @await this.Component.InvokeAsync("Pager", new { pagingList = this.Model })
+
+</nav>
+<br />
